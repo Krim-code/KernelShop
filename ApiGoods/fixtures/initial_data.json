@@ -1,0 +1,178 @@
+[
+  {
+      "model": "ApiGoods.category",
+      "pk": 1,
+      "fields": {
+          "name": "Electronics",
+          "parent": null
+      }
+  },
+  {
+      "model": "ApiGoods.category",
+      "pk": 2,
+      "fields": {
+          "name": "Smartphones",
+          "parent": 1
+      }
+  },
+  {
+      "model": "ApiGoods.categoryseo",
+      "pk": 1,
+      "fields": {
+          "category": 1,
+          "meta_title_template": "Buy {{ category.name }} at Best Prices",
+          "meta_keywords_template": "electronics, {{ category.name }}, buy",
+          "meta_description_template": "Get the best deals on {{ category.name }} at our store.",
+          "element_title_template": "{{ category.name }} - Top Products",
+          "main_image_alt_template": "{{ category.name }} Main Image",
+          "main_image_title_template": "Best {{ category.name }} Image",
+          "main_image_filename_template": "{{ category.name }}_main.jpg",
+          "detail_image_alt_template": "{{ category.name }} Detail Image",
+          "detail_image_title_template": "Detail {{ category.name }} Image",
+          "detail_image_filename_template": "{{ category.name }}_detail.jpg",
+          "tags": ["electronics", "sale", "discount"]
+      }
+  },
+  {
+      "model": "ApiGoods.property",
+      "pk": 1,
+      "fields": {
+          "name": "Brand",
+          "category": 2
+      }
+  },
+  {
+      "model": "ApiGoods.property",
+      "pk": 2,
+      "fields": {
+          "name": "Operating System",
+          "category": 2
+      }
+  },
+  {
+      "model": "ApiGoods.singleproperty",
+      "pk": 1,
+      "fields": {
+          "property_ptr": 1,
+          "property_type": "text"
+      }
+  },
+  {
+      "model": "ApiGoods.listproperty",
+      "pk": 2,
+      "fields": {
+          "property_ptr": 2
+      }
+  },
+  {
+      "model": "ApiGoods.listpropertyoption",
+      "pk": 1,
+      "fields": {
+          "list_property": 2,
+          "value": "iOS"
+      }
+  },
+  {
+      "model": "ApiGoods.listpropertyoption",
+      "pk": 2,
+      "fields": {
+          "list_property": 2,
+          "value": "Android"
+      }
+  },
+  {
+      "model": "ApiGoods.productconfigurator",
+      "pk": 1,
+      "fields": {
+          "configuration": "{\"key\": \"value\"}"
+      }
+  },
+  {
+      "model": "ApiGoods.product",
+      "pk": 1,
+      "fields": {
+          "name": "iPhone 12",
+          "category": 2,
+          "short_description": "A smartphone by Apple.",
+          "detailed_description": "The iPhone 12 is the latest model with A14 Bionic chip and 5G capability.",
+          "image": "products/iphone_12.jpg",
+          "sort_order": 1,
+          "is_active": true,
+          "configurator": 1,
+          "desired_price": 999.99,
+          "discount_percentage": 10,
+          "final_price": 899.99,
+          "seo_properties": 1
+      }
+  },
+  {
+      "model": "ApiGoods.productseo",
+      "pk": 1,
+      "fields": {
+          "product": 1,
+          "meta_title_template": "Buy {{ product.name }} at Best Prices",
+          "meta_keywords_template": "smartphones, {{ product.name }}, buy",
+          "meta_description_template": "Get the best deals on {{ product.name }} at our store.",
+          "element_title_template": "{{ product.name }} - Top Product",
+          "main_image_alt_template": "{{ product.name }} Main Image",
+          "main_image_title_template": "Best {{ product.name }} Image",
+          "main_image_filename_template": "{{ product.name }}_main.jpg",
+          "detail_image_alt_template": "{{ product.name }} Detail Image",
+          "detail_image_title_template": "Detail {{ product.name }} Image",
+          "detail_image_filename_template": "{{ product.name }}_detail.jpg",
+          "tags": ["smartphones", "apple", "discount"]
+      }
+  },
+  {
+      "model": "ApiGoods.productsliderimage",
+      "pk": 1,
+      "fields": {
+          "product": 1,
+          "image": "products/slider/iphone_12_1.jpg"
+      }
+  },
+  {
+      "model": "ApiGoods.productsliderimage",
+      "pk": 2,
+      "fields": {
+          "product": 1,
+          "image": "products/slider/iphone_12_2.jpg"
+      }
+  },
+  {
+      "model": "ApiGoods.productfile",
+      "pk": 1,
+      "fields": {
+          "product": 1,
+          "file": "products/files/iphone_12_manual.pdf",
+          "description": "User manual for iPhone 12"
+      }
+  },
+  {
+      "model": "ApiGoods.productfile",
+      "pk": 2,
+      "fields": {
+          "product": 1,
+          "file": "products/files/iphone_12_warranty.pdf",
+          "description": "Warranty information for iPhone 12"
+      }
+  },
+  {
+      "model": "ApiGoods.productproperty",
+      "pk": 1,
+      "fields": {
+          "product": 1,
+          "property": 1,
+          "value": "Apple"
+      }
+  },
+  {
+      "model": "ApiGoods.productproperty",
+      "pk": 2,
+      "fields": {
+          "product": 1,
+          "property": 2,
+          "value": "iOS"
+      }
+  }
+]

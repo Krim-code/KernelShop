@@ -1,0 +1,56 @@
+/* static/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, nav, main, footer {
+    padding: 1em;
+    margin: 1em;
+}
+
+header {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+nav {
+    background-color: #f0f0f0;
+    border-right: 1px solid #ddd;
+    float: left;
+    width: 200px;
+}
+
+main {
+    margin-left: 220px;
+}
+
+footer {
+    clear: both;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+.panel {
+    display: none;
+    padding: 0 0.5em;
+    border-left: 1px solid #ccc;
+    margin: 0.5em 0;
+}

@@ -1,0 +1,63 @@
+<!-- templates/main.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>Categories</h2>
+<div>
+    <ul>
+        {% for category in object_list %}
+        <li>
+            <div class="accordion">{{ category.name }}</div>
+            {% if category.children.exists %}
+            <div class="panel">
+                <ul>
+                    {% for child in category.children.all %}
+                    <li><a href="?category={{ child.pk }}">{{ child.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<h2>Elements</h2>
+<form method="get">
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Short Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for element in elements %}
+        <tr>
+            <td>{{ element.name }}</td>
+            <td>{{ element.short_description }}</td>
+            <td>
+                <a href="{% url 'element-edit' element.pk %}">Edit</a>
+                <a href="{% url 'element-delete' element.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if is_paginated %}
+    <div>
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        <div>
+            {% if page_obj.has_previous %}
+                <a href="?{% if search %}search={{ search }}&{% endif %}page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a href="?{% if search %}search={{ search }}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
